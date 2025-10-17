@@ -32,7 +32,7 @@ jobs:
         # Use custom configuration file
         config-file: ./.github/codeql-config/codeql-config.yml
         # Use optimized queries
-        queries: security-extended,security-and-quality,./.github/codeql-config/queries
+        queries: security-extended,security-and-quality
         ram: 8192
         threads: 0
         timeout: 900

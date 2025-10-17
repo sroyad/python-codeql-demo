@@ -1,8 +1,5 @@
 name: "Python Optimized CodeQL Configuration"
 
-# Disable overly broad default rules that generate false positives
-disable-default-rules: false
-
 # Use high-precision query suites
 queries:
   # Core security queries with high precision
@@ -10,7 +7,7 @@ queries:
   # Quality queries that catch real issues
   - uses: security-and-quality
 
-# Exclude paths that commonly generate false positives
+# Exclude only the most noisy paths
 paths-ignore:
   - "**/*.test.py"
   - "**/*_test.py"
@@ -19,22 +16,14 @@ paths-ignore:
   - "**/venv/**"
   - "**/env/**"
   - "**/__pycache__/**"
-  - "**/migrations/**"
-  - "**/examples/**"
-  - "**/samples/**"
 
 # Focus on production code paths
 paths:
   - "*.py"
-  - "app.py"
 
-# Exclude specific query categories that are known to be noisy
+# Exclude only the most noisy query types
 query-filters:
   - exclude:
       id: "py/unused-import"
   - exclude:
       id: "py/unused-variable"
-  - exclude:
-      id: "py/dead-code"
-  - exclude:
-      id: "py/unreachable-code"
