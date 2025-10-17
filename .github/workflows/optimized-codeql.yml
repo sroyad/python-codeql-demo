@@ -29,8 +29,10 @@ jobs:
       with:
         languages: python
         build-mode: none
-        # Using optimized configuration
-        queries: security-extended,security-and-quality
+        # Use custom configuration file
+        config-file: ./.github/codeql-config/codeql-config.yml
+        # Use optimized queries
+        queries: security-extended,security-and-quality,./.github/codeql-config/queries
         ram: 8192
         threads: 0
         timeout: 900
